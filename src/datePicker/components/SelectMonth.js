@@ -228,10 +228,11 @@ const styles = theme =>
       opacity: 0,
     },
     arrow: {
-      width: 18,
-      height: 18,
-      opacity: 0.9,
-      tintColor: theme.mainColor,
+      // width: 18,
+      resizeMode: 'contain',
+      height: 14,
+      // opacity: 0.9,
+      // tintColor: theme.mainColor,
       margin: 2,
     },
     leftArrow: {

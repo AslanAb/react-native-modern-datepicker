@@ -30,14 +30,16 @@ const Days = () => {
           key={n}
           style={{
             width: itemSize,
-            height: itemSize,
+            // height: itemSize,
+            height: "auto",
           }}>
           {day && (
             <TouchableOpacity
               style={[
                 style.dayItem,
                 {
-                  borderRadius: itemSize / 2,
+                  // borderRadius: itemSize / 2,
+                  borderRadius: 8,
                 },
                 mainState.selectedDate === day.date && style.dayItemSelected,
               ]}
@@ -67,10 +69,12 @@ const styles = theme =>
       flexWrap: 'wrap',
     },
     dayItem: {
-      flex: 1,
+      // flex: 1,
+      width: '100%',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: 3,
+      // margin: 1,
+      paddingVertical: 6,
     },
     dayItemSelected: {
       backgroundColor: theme.mainColor,
@@ -84,10 +88,13 @@ const styles = theme =>
     },
     dayTextSelected: {
       color: theme.selectedTextColor,
-      fontFamily: theme.headerFont,
+      // fontFamily: theme.headerFont,
+      borderWidth: 0,
+
     },
     dayTextDisabled: {
-      opacity: 0.2,
+      // opacity: 0.2,
+      color: "#94A3B8"
     },
   });
 

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, StyleSheet, Text, Animated} from 'react-native';
+import {View, StyleSheet, Text, Animated, Platform} from 'react-native';
 
 import {Header, Days} from '.';
 import {useCalendar} from '../DatePicker';
@@ -22,7 +22,7 @@ const Calendar = () => {
       <Header changeMonth={changeMonthAnimation} />
       <View style={[style.daysName, utils.flexDirection]}>
         {utils.config.dayNamesShort.map(item => (
-          <Text key={item} style={style.daysNameText}>
+          <Text key={item} style={[style.daysNameText, {color: item === "Вс" || item === "Сб"  ? "#0075FF" : "#3F444A"}]}>
             {item}
           </Text>
         ))}
@@ -44,16 +44,16 @@ const styles = theme =>
     },
     daysName: {
       paddingBottom: 10,
-      marginBottom: 0,
+      marginBottom: Platform.OS === 'ios' ? 0 : 5,
       alignItems: 'center',
       justifyContent: 'space-around',
-      borderBottomColor: theme.borderColor,
-      borderBottomWidth: 1,
+      // borderBottomColor: theme.borderColor,
+      // borderBottomWidth: 1,
       marginHorizontal: 15,
     },
     daysNameText: {
-      fontFamily: theme.defaultFont,
-      color: theme.textSecondaryColor,
+      fontFamily: "NunitoSans_Medium" || theme.defaultFont,
+      // color: theme.textSecondaryColor,
       fontSize: theme.textFontSize,
     },
     daysContainer: {

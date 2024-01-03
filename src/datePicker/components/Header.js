@@ -47,15 +47,6 @@ const Header = ({changeMonth}) => {
 
   return (
     <View style={[style.container, I18nManager.isRTL && style.reverseContainer]}>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={() => !nextDisable && onChangeMonth('NEXT')}
-        style={style.arrowWrapper}>
-        <Image
-          source={require('../../assets/arrow.png')}
-          style={[style.arrow, nextDisable && style.disableArrow]}
-        />
-      </TouchableOpacity>
       <View style={style.monthYearContainer}>
         <Animated.View
           style={[
@@ -123,6 +114,15 @@ const Header = ({changeMonth}) => {
           style={[style.arrow, style.leftArrow, prevDisable && style.disableArrow]}
         />
       </TouchableOpacity>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => !nextDisable && onChangeMonth('NEXT')}
+        style={style.arrowWrapper}>
+        <Image
+          source={require('../../assets/arrow.png')}
+          style={[style.arrow, nextDisable && style.disableArrow]}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -131,23 +131,25 @@ const styles = (theme) =>
   StyleSheet.create({
     container: {
       alignItems: 'center',
-      flexDirection: 'row-reverse',
+      // flexDirection: 'row-reverse',
+      flexDirection: 'row',
     },
     reverseContainer: {
       flexDirection: 'row',
     },
     arrowWrapper: {
-      padding: 20,
+      paddingVertical: 22,
       position: 'relative',
       zIndex: 1,
       opacity: 1,
     },
     arrow: {
-      width: 18,
-      height: 18,
-      opacity: 0.9,
-      tintColor: theme.mainColor,
-      margin: 2,
+      resizeMode: 'contain',
+      // width: 20,
+      height: 14,
+      // opacity: 0.9,
+      // tintColor: theme.mainColor,
+      marginRight: 22,
     },
     leftArrow: {
       transform: [
@@ -162,7 +164,7 @@ const styles = (theme) =>
     monthYearContainer: {
       flex: 1,
       position: 'relative',
-      alignItems: 'center',
+      alignItems: 'start',
       justifyContent: 'center',
     },
     monthYear: {
@@ -190,12 +192,13 @@ const styles = (theme) =>
       fontFamily: theme.headerFont,
     },
     centerWrapper: {
-      borderColor: theme.borderColor,
+      // borderColor: theme.borderColor,
       paddingVertical: 4,
-      paddingHorizontal: 8,
+      // paddingHorizontal: 8,
+      paddingHorizontal: 20,
       alignItems: 'center',
-      borderRadius: 5,
-      borderWidth: 1,
+      // borderRadius: 5,
+      // borderWidth: 1,
     },
     time: {
       marginRight: 5,
